@@ -1,0 +1,20 @@
+{
+    "name": "Tattoo Art Studio",
+    "short_name": "TattooApp",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#1a1a1a",
+    "theme_color": "#ffffff",
+    "icons": [
+        {
+            "src": "background.1jpg",
+            "sizes": "192x192",
+            "type": "image/jpg"
+        },
+        {
+            "src": "background.2jpg",
+            "sizes": "512x512",
+            "type": "image/jpg"
+        }
+    ]
+}
