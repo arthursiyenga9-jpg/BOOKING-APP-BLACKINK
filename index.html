@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="manifest" href="/manifest.json">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACKINK ZAMBIA | Premier Tattoo Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () { emailjs.init("ihWnRHPiOhyn1rEl3"); })();
+    </script>
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <img src="black logo.jpg" alt="BlackInk Logo" class="hero-logo">
+                <h1>BLACKINK <span class="accent-green">ZAMBIA</span></h1>
+                <p class="tagline">INKED WITH PASSION</p>
+                <div class="hero-btns">
+                    <a href="#booking" class="btn-primary">Book Appointment</a>
+                    <a href="#manage" class="btn-secondary">My Bookings</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="booking" class="glass-section">
+            <h2 class="text-purple">Secure Your Session</h2>
+            <form id="appointment-form">
+                <div class="form-row">
+                    <input type="text" id="name" placeholder="Full Name" required>
+                    <input type="email" id="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-row">
+                    <input type="date" id="date" required>
+                    <select id="time" required>
+                        <option value="" disabled selected>Select Time Slot</option>
+                        <option value="09:00">09:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="13:00">01:00 PM</option>
+                        <option value="14:00">02:00 PM</option>
+                        <option value="15:00">03:00 PM</option>
+                        <option value="16:00">04:00 PM</option>
+                        <option value="17:00">05:00 PM</option>
+                        <option value="18:00">06:00 PM</option>
+                    </select>
+                </div>
+                <textarea id="tattoo-description" placeholder="Describe your tattoo vision..." required></textarea>
+                <button type="submit" class="cta-submit">SEND BOOKING REQUEST</button>
+            </form>
+        </section>
+
+        <section id="manage" class="glass-section">
+            <h2 class="text-green">Manage Your Appointments</h2>
+            <p>Enter your email to see or cancel your scheduled sessions.</p>
+            <div class="search-box">
+                <input type="email" id="manage-email" placeholder="Enter your booking email">
+                <button onclick="loadAppointments()" class="btn-primary">Find My Bookings</button>
+            </div>
+            <ul id="appointments"></ul>
+        </section>
+
+        <section id="user-uploads" class="glass-section">
+            <h2 class="text-blue">Upload Your Reference Art</h2>
+            <p>Show us your inspiration. Pick a photo or take one now.</p>
+            <div class="upload-controls">
+                <input type="file" id="customer-design-upload" accept="image/*" style="display: none;">
+                <button type="button" class="btn-primary"
+                    onclick="document.getElementById('customer-design-upload').click()">
+                    📸 CHOOSE IMAGE
+                </button>
+            </div>
+            <div id="customer-preview-gallery" class="gallery-grid"></div>
+        </section>
+
+        <section id="design" class="glass-section">
+            <h2 class="text-green">Sketch Your Idea</h2>
+            <canvas id="tattoo-canvas" width="400" height="400"></canvas>
+            <div class="tool-bar">
+                <input type="color" id="color-picker" value="#000000">
+                <button id="clear">Clear Canvas</button>
+                <button id="save">Save Sketch</button>
+            </div>
+        </section>
+
+        <section id="location" class="glass-section">
+            <h2 class="text-purple">Visit the Studio</h2>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123081.56455110991!2d28.204557989504565!3d-15.414343759972322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x194074f7678505e9%3A0x633d3c88383a152d!2sLusaka!5e0!3m2!1sen!2szm!4v1715000000000!5m2!1sen!2szm"
+                    width="100%" height="300" style="border:0; border-radius: 15px;" allowfullscreen=""
+                    loading="lazy"></iframe>
+            </div>
+            <p class="contact-text">📍 KABWATA,Lusaka, Zambia | 📧 info@blackinkzambia.com</p> | 0974983484
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 BLACKINK ZAMBIA. All Rights Reserved.</p>
+    </footer>
+
+    <script src="tattoo app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('App ready to work offline!'))
+                    .catch(err => console.log('Service worker error', err));
+            });
+        }
+    </script>
+</body>
+
+</html>
